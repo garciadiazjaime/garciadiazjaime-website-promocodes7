@@ -8,6 +8,7 @@ export default function Home() {
       <Head>
         <title>Promo Codes 7</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="description" content="We find and verify the best coupon codes on the web for you." />
       </Head>
 
       <main>
@@ -15,9 +16,9 @@ export default function Home() {
           Promo Codes 7
         </h1>
 
-        <p className={styles.description}>
+        <h2 className={styles.description}>
           Promo codes that work
-        </p>
+        </h2>
 
         <div className={styles.grid}>
           <div className={styles.card}>
@@ -63,14 +64,11 @@ export default function Home() {
         </div>
       </main>
 
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Promo Codes 7
-        </a>
+      <footer style={{textAlign: 'center'}}>
+        <b>Promo Codes 7</b>
+        <div>
+          Promo codes that work
+        </div>
       </footer>
 
       <style jsx>{`
@@ -93,9 +91,9 @@ export default function Home() {
           width: 100%;
           height: 100px;
           border-top: 1px solid #eaeaea;
-          display: flex;
           justify-content: center;
           align-items: center;
+          padding: 20px 0;
         }
         footer img {
           margin-left: 0.5rem;
