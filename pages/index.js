@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Link from 'next/link'
 
 import styles from '../styles/Home.module.css';
 
@@ -23,13 +22,44 @@ export default function Home() {
         <div className={styles.grid}>
           <div className={styles.card}>
             <h3>Papa Johns</h3>
+            <strong>OZARK50</strong>
+            <p>50% off any purchase when you place your order online</p>
+          </div>
+
+          <div className={styles.card}>
+            <h3>Papa Johns</h3>
             <strong>BARRIO10</strong>
             <p>40% off any purchase when you place your order online</p>
           </div>
-        </div>
 
-        <div>
-          <Link href="/add-code">Add Code</Link>
+          <div className={styles.card}>
+            <h3>Papa Johns</h3>
+            <strong>BGCCH</strong>
+            <p>30% off any purchase when you place your order online</p>
+          </div>
+
+          <div className={styles.card}>
+            <h3>Papa Johns</h3>
+            <strong>AMAC25</strong>
+            <p>25% off any purchase when you place your order online</p>
+          </div>
+
+          <div className={styles.card}>
+            <h3>Dominos Pizza</h3>
+            <strong>1126</strong>
+            <p>20% off your entire order</p>
+          </div>
+          <div className={styles.card}>
+            <h3>Dominos Pizza</h3>
+            <strong>9222</strong>
+            <p>Any 2 or more for $6.99 each</p>
+          </div>
+          <div className={styles.card}>
+            <h3>Dominos Pizza</h3>
+            <strong>9220</strong>
+            <p>For $7.99 each, carry out all pizzas with 1 topping</p>
+          </div>
+          
         </div>
       </main>
 
