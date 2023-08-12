@@ -1,5 +1,6 @@
 import Head from "next/head";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import TagManager from "react-gtm-module";
 
 export default function Home() {
   const [codeCopied, setCodeCopied] = useState("");
@@ -40,6 +41,13 @@ export default function Home() {
     navigator.clipboard.writeText(code);
     setCodeCopied(code);
   };
+
+  useEffect(() => {
+    const tagManagerArgs = {
+      gtmId: "GTM-KRRSCXBC",
+    };
+    TagManager.initialize(tagManagerArgs);
+  });
 
   return (
     <div>
