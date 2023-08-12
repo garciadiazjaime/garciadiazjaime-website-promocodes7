@@ -1,119 +1,131 @@
-import Head from 'next/head';
-
-import styles from '../styles/Home.module.css';
+import Head from "next/head";
+import { useState } from "react";
 
 export default function Home() {
+  const [codeCopied, setCodeCopied] = useState("");
+
+  const styles = {
+    container: { maxWidth: 800, margin: "0 auto", padding: 12 },
+    color: {
+      primary: "#ff0000",
+      secondary: "#2d5d2a",
+      gray: "#d1d1d1",
+    },
+  };
+
+  const coupons = [
+    {
+      title: "Papa Johns",
+      code: "OZARK50",
+      description: "50% off any purchase when you place your order online",
+    },
+    {
+      title: "Papa Johns",
+      code: "BARRIO10",
+      description: "40% off any purchase when you place your order online",
+    },
+    {
+      title: "Papa Johns",
+      code: "BGCCH",
+      description: "30% off any purchase when you place your order online",
+    },
+    {
+      title: "Papa Johns",
+      code: "AMAC25",
+      description: "25% off any purchase when you place your order online",
+    },
+  ];
+
+  const couponClickHandler = (code) => {
+    navigator.clipboard.writeText(code);
+    setCodeCopied(code);
+  };
+
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
-        <title>Promo Codes 7</title>
+        <title>Coupons and Promo Codes for Papa Johns</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta name="description" content="We find and verify the best coupon codes on the web for you." />
+        <meta
+          name="description"
+          content="We find and verify the best Papa Johns coupon and promo codes on the web for you."
+        />
       </Head>
 
-      <main>
-        <h1 className={styles.title}>
-          Promo Codes 7
+      <header
+        style={{
+          borderBottom: `1px solid ${styles.color.gray}`,
+          padding: "20px 0",
+        }}
+      >
+        <h1 style={styles.container}>
+          <span style={{ color: styles.color.primary }}>Papa Johns</span>{" "}
+          Coupons and Promo Codes
         </h1>
+      </header>
 
-        <h2 className={styles.description}>
-          Promo codes that work
-        </h2>
+      <main style={styles.container}>
+        <h2 style={{ color: styles.color.secondary }}>Promo codes that work</h2>
 
-        <div className={styles.grid}>
-          <div className={styles.card}>
-            <h3>Papa Johns</h3>
-            <strong>OZARK50</strong>
-            <p>50% off any purchase when you place your order online</p>
-          </div>
-
-          <div className={styles.card}>
-            <h3>Papa Johns</h3>
-            <strong>BARRIO10</strong>
-            <p>40% off any purchase when you place your order online</p>
-          </div>
-
-          <div className={styles.card}>
-            <h3>Papa Johns</h3>
-            <strong>BGCCH</strong>
-            <p>30% off any purchase when you place your order online</p>
-          </div>
-
-          <div className={styles.card}>
-            <h3>Papa Johns</h3>
-            <strong>AMAC25</strong>
-            <p>25% off any purchase when you place your order online</p>
-          </div>
-
-          <div className={styles.card}>
-            <h3>Dominos Pizza</h3>
-            <strong>1126</strong>
-            <p>20% off your entire order</p>
-          </div>
-          <div className={styles.card}>
-            <h3>Dominos Pizza</h3>
-            <strong>9222</strong>
-            <p>Any 2 or more for $6.99 each</p>
-          </div>
-          <div className={styles.card}>
-            <h3>Dominos Pizza</h3>
-            <strong>9220</strong>
-            <p>For $7.99 each, carry out all pizzas with 1 topping</p>
-          </div>
-          
+        <div>
+          {coupons.map((coupon, index) => (
+            <div
+              key={index}
+              style={{
+                border: `1px ${
+                  index === 0 ? styles.color.secondary : styles.color.gray
+                } solid`,
+                padding: 12,
+                margin: "6px 0 0",
+              }}
+              onClick={() => couponClickHandler(coupon.code)}
+            >
+              <h3>{coupon.title}</h3>
+              <strong
+                style={{
+                  border: `1px ${styles.color.gray} dotted`,
+                  padding: 12,
+                  fontSize: 42,
+                  margin: "12px 0",
+                  display: "block",
+                }}
+              >
+                {coupon.code}
+              </strong>
+              <p>{coupon.description}</p>
+              <div
+                style={{
+                  opacity: 0.6,
+                  textAlign: "right",
+                  visibility: codeCopied == coupon.code ? "" : "hidden",
+                }}
+              >
+                copied
+              </div>
+            </div>
+          ))}
         </div>
       </main>
 
-      <footer style={{textAlign: 'center'}}>
-        <b>Promo Codes 7</b>
-        <div>
-          Promo codes that work
+      <footer
+        style={{
+          borderTop: `1px solid ${styles.color.gray}`,
+          padding: "20px 0 0",
+        }}
+      >
+        <div style={styles.container}>
+          <p>
+            <strong style={{ color: styles.color.secondary }}>
+              Coupons and Promo Codes for Papa Johns
+            </strong>
+          </p>
+          <div>
+            Unlock Delicious Savings with Papa John's Coupons and Promo Codes!
+            Indulge in Mouthwatering Pizzas, Irresistible Sides, and More at
+            Unbeatable Prices. Order Now and Enjoy the Taste of Savings!
+          </div>
         </div>
       </footer>
-
-      <style jsx>{`
-        strong {
-          padding: 12px 24px;
-          margin: 12px 0;
-          border: 1px dotted black;
-          display: block;
-          text-align: center;
-        }
-        main {
-          padding: 5rem 0;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-        footer {
-          width: 100%;
-          height: 100px;
-          border-top: 1px solid #eaeaea;
-          justify-content: center;
-          align-items: center;
-          padding: 20px 0;
-        }
-        footer img {
-          margin-left: 0.5rem;
-        }
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          text-decoration: none;
-          color: inherit;
-        }
-        code {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-          font-size: 1.1rem;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-        }
-      `}</style>
 
       <style jsx global>{`
         html,
@@ -129,5 +141,5 @@ export default function Home() {
         }
       `}</style>
     </div>
-  )
+  );
 }

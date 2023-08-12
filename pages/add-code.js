@@ -4,7 +4,6 @@ import Link from "next/link";
 
 import { saveCode } from "../support/lambda-service";
 import Loader from "../components/loader";
-import styles from "../styles/Home.module.css";
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
@@ -40,23 +39,21 @@ export default function Home() {
   };
 
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>Promo Codes 7</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
-        <h1 className={styles.title}>Add a Promo Code</h1>
+        <h1>Add a Promo Code</h1>
 
-        <p className={styles.description}>
-          You found something good, share it!
-        </p>
+        <p>You found something good, share it!</p>
 
         <div className="form-control">
           <p>Website</p>
           <div>
-            <input type="text" ref={websiteEl} placeholder="http://..."/>
+            <input type="text" ref={websiteEl} placeholder="http://..." />
           </div>
           <p>Code</p>
           <div>
