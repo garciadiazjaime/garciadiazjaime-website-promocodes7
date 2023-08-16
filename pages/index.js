@@ -17,11 +17,6 @@ export default function Home() {
   const coupons = [
     {
       title: "Papa Johns",
-      code: "OZARK50",
-      description: "50% off any purchase when you place your order online",
-    },
-    {
-      title: "Papa Johns",
       code: "BARRIO10",
       description: "40% off any purchase when you place your order online",
     },
@@ -36,6 +31,23 @@ export default function Home() {
       description: "25% off any purchase when you place your order online",
     },
   ];
+
+  const FAQ = [
+    {
+      "@type": "Question",
+      name: "What is the best Coupon Promo Code for Papa Johns?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "<strong>BARRIO10</strong> - 40% off any purchase when you place your order online",
+      },
+    },
+  ];
+
+  const articleStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: FAQ,
+  };
 
   const couponClickHandler = (code) => {
     navigator.clipboard.writeText(code);
@@ -53,10 +65,29 @@ export default function Home() {
     <div>
       <Head>
         <title>Coupons and Promo Codes for Papa Johns</title>
+        <link rel="canonical" href="https://coupons.garitacenter.com/" />
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"
           content="We find and verify the best Papa Johns coupon and promo codes on the web for you."
+        />
+        <script type="application/ld+json">
+          {JSON.stringify(articleStructuredData)}
+        </script>
+
+        <meta property="og:url" content="https://coupons.garitacenter.com/" />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:title"
+          content="Coupons and Promo Codes for Papa Johns"
+        />
+        <meta
+          property="og:description"
+          content="We find and verify the best Papa Johns coupon and promo codes on the web for you."
+        />
+        <meta
+          property="og:image"
+          content="https://coupons.garitacenter.com/profile.png"
         />
       </Head>
 
@@ -113,6 +144,30 @@ export default function Home() {
             </div>
           ))}
         </div>
+
+        <p style={{ margin: "20px 0" }}>
+          I'm a proud member of the <strong>Papa Johns</strong> Pizza Fan Club
+          (yes, it's a thing). I've got a monthly pizza radar that never fails –
+          it's like a sacred ritual. But the <strong>Coupons</strong> quest? Oh
+          boy, that's a wild ride! Most coupon websites are like virtual mazes
+          designed by mischievous squirrels. But fear not, my fellow pizza
+          lover! I've taken matters into my own hands and created a no-nonsense
+          website where the <strong>Promo Codes</strong> are as real as the
+          cheese on your slice. Your hunt for savings ends here – welcome to
+          Pizza Paradise! 🍕💰
+        </p>
+
+        <ul style={{ padding: 0, listStyle: "none" }}>
+          {FAQ.map((item) => (
+            <li>
+              <div>{item.name}</div>
+              <div
+                dangerouslySetInnerHTML={{ __html: item.acceptedAnswer.text }}
+                style={{ margin: "12px 0", opacity: 0.8 }}
+              ></div>
+            </li>
+          ))}
+        </ul>
       </main>
 
       <footer
@@ -131,6 +186,17 @@ export default function Home() {
             Unlock Delicious Savings with Papa John's Coupons and Promo Codes!
             Indulge in Mouthwatering Pizzas, Irresistible Sides, and More at
             Unbeatable Prices. Order Now and Enjoy the Taste of Savings!
+          </div>
+          <div style={{ margin: "20px 0" }}>
+            Follow Us on{" "}
+            <a
+              href="https://www.facebook.com/best.coupons.promo.codes"
+              rel="nofollow"
+              style={{ color: "black", opacity: 0.8 }}
+              title="Coupons and Promo Codes"
+            >
+              Facebook
+            </a>
           </div>
         </div>
       </footer>
