@@ -18,35 +18,49 @@ export default function Home() {
     {
       title: "Papa Johns",
       code: "BARRIO10",
-      description: "40% off any purchase when you place your order online",
+      description:
+        "This coupon gets you 40% off any purchase when you place your order online",
     },
     {
       title: "Papa Johns",
       code: "BGCCH",
-      description: "30% off any purchase when you place your order online",
+      description:
+        "Promo code to get 30% off any purchase when you place your order online",
     },
     {
       title: "Papa Johns",
       code: "AMAC25",
-      description: "25% off any purchase when you place your order online",
+      description:
+        "Use this coupon to get 25% off any purchase when you place your order online",
     },
   ];
 
   const FAQ = [
     {
-      "@type": "Question",
-      name: "What is the best Coupon Promo Code for Papa Johns?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "<strong>BARRIO10</strong> - 40% off any purchase when you place your order online",
-      },
+      question: "What is the best Coupon for Papa Johns?",
+      answer: "BARRIO10",
+    },
+    {
+      question: "Which Papa Johns Promo Code gives you 40% off?",
+      answer: "BARRIO10",
+    },
+    {
+      question: "Which Papa Johns Promo Code gives you 30% off?",
+      answer: "BGCCH",
     },
   ];
 
   const articleStructuredData = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: FAQ,
+    mainEntity: FAQ.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
   };
 
   const couponClickHandler = (code) => {
@@ -64,12 +78,14 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Coupons and Promo Codes for Papa Johns</title>
+        <title>
+          40% off any purchase | Coupons and Promo Codes for Papa Johns
+        </title>
         <link rel="canonical" href="https://coupons.garitacenter.com/" />
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"
-          content="We find and verify the best Papa Johns coupon and promo codes on the web for you."
+          content="Promo Code: BARRIO10 gives you 40% off any purchase. We find and verify the best Papa Johns Coupons and Promo Codes on the web for you."
         />
         <script type="application/ld+json">
           {JSON.stringify(articleStructuredData)}
@@ -159,15 +175,24 @@ export default function Home() {
 
         <ul style={{ padding: 0, listStyle: "none" }}>
           {FAQ.map((item) => (
-            <li>
-              <div>{item.name}</div>
+            <li style={{ padding: "0 0 20px 0" }}>
+              <div>- {item.question}</div>
               <div
-                dangerouslySetInnerHTML={{ __html: item.acceptedAnswer.text }}
-                style={{ margin: "12px 0", opacity: 0.8 }}
-              ></div>
+                style={{ margin: "12px 0", opacity: 0.8, fontWeight: "bold" }}
+              >
+                {item.answer}
+              </div>
             </li>
           ))}
         </ul>
+
+        <p style={{ margin: "20px 0" }}>
+          Indulge in mouthwatering pizzas from Papa John's with unbeatable
+          savings using our exclusive coupons and promo codes. Treat yourself to
+          delectable flavors while enjoying incredible discounts on your
+          favorite slices. Don't miss out on the chance to satisfy your cravings
+          while keeping your wallet happy!
+        </p>
       </main>
 
       <footer
@@ -184,8 +209,6 @@ export default function Home() {
           </p>
           <div>
             Unlock Delicious Savings with Papa John's Coupons and Promo Codes!
-            Indulge in Mouthwatering Pizzas, Irresistible Sides, and More at
-            Unbeatable Prices. Order Now and Enjoy the Taste of Savings!
           </div>
           <div style={{ margin: "20px 0" }}>
             Follow Us on{" "}
