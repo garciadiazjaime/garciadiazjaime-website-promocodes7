@@ -26,18 +26,32 @@ export default function Home() {
       code: "BARRIO10",
       description:
         "This coupon gets you 40% off any purchase when you place your order online",
+      percentage: 40,
     },
     {
       title: "Papa Johns",
-      code: "BGCCH",
-      description:
-        "Promo code to get 30% off any purchase when you place your order online",
+      code: "SM25",
+      description: "Extra 25% Off Your Order using this coupon",
+      percentage: 25,
     },
     {
       title: "Papa Johns",
       code: "AMAC25",
       description:
         "Use this coupon to get 25% off any purchase when you place your order online",
+      percentage: 25,
+    },
+    {
+      title: "Papa Johns",
+      code: "FUND20",
+      description: "20% Off Regular-Menu Priced Items with this promo code",
+      percentage: 20,
+    },
+    {
+      title: "Papa Johns",
+      code: "2LRGS",
+      description:
+        "Two Large Pizzas with your favorite two toppings for $10.99 each",
     },
   ];
 
@@ -47,12 +61,12 @@ export default function Home() {
       answer: "BARRIO10",
     },
     {
-      question: "Which Papa Johns Promo Code gives you 40% off?",
-      answer: "BARRIO10",
+      question: `Which Papa Johns Promo Code gives you <strong>${coupons[0].percentage} off</strong>?`,
+      answer: coupons[0].code,
     },
     {
-      question: "Which Papa Johns Promo Code gives you 30% off?",
-      answer: "BGCCH",
+      question: `Which Papa Johns Promo Code gives you <strong>${coupons[1].percentage} off?</strong>`,
+      answer: coupons[1].code,
     },
   ];
 
@@ -163,7 +177,10 @@ export default function Home() {
               }}
               onClick={() => couponClickHandler(coupon.code)}
             >
-              <h3>{coupon.title}</h3>
+              <h3>
+                {coupon.title}{" "}
+                {coupon.percentage ? `${coupon.percentage} OFF` : "Promo Code"}
+              </h3>
               <strong
                 style={{
                   border: `1px ${styles.color.gray} dotted`,
@@ -189,7 +206,7 @@ export default function Home() {
           ))}
         </div>
 
-        <p style={{ margin: "20px 0" }}>
+        <p style={{ margin: "60px 0" }}>
           I'm a proud member of the <strong>Papa Johns</strong> Pizza Fan Club
           (yes, it's a thing). I've got a monthly pizza radar that never fails –
           it's like a sacred ritual. But the <strong>Coupons</strong> quest? Oh
@@ -204,7 +221,7 @@ export default function Home() {
         <ul style={{ padding: 0, listStyle: "none" }}>
           {FAQ.map((item) => (
             <li style={{ padding: "0 0 20px 0" }} key={item.answer}>
-              <div>- {item.question}</div>
+              <div dangerouslySetInnerHTML={{ __html: item.question }} />
               <div
                 style={{ margin: "12px 0", opacity: 0.8, fontWeight: "bold" }}
               >
