@@ -14,6 +14,12 @@ export default function Home() {
     },
   };
 
+  const content = {
+    title: "40% Off Papa John's Coupons, Promo Codes",
+    description:
+      "Promo Code: BARRIO10 gives you 40% off any purchase. We find and verify the best Papa Johns Coupons and Promo Codes on the web for you.",
+  };
+
   const coupons = [
     {
       title: "Papa Johns",
@@ -50,7 +56,7 @@ export default function Home() {
     },
   ];
 
-  const articleStructuredData = {
+  const FAQStructuredData = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: FAQ.map((item) => ({
@@ -61,6 +67,32 @@ export default function Home() {
         text: item.answer,
       },
     })),
+  };
+
+  const disCountStructure = {
+    "@context": "https://schema.org/",
+    "@type": "Offer",
+    name: coupons[0].description,
+    description: "Some location exclusions may apply.",
+    category: "Coupon",
+    validFrom: "2023-07-08T02:34:00-05:00",
+    validThrough: "",
+    url: "/coupons/papa-johns#dj04NTg0NDE=",
+    eligibleCustomerType: "Available to new and existing customers",
+    priceSpecification: {
+      "@type": "PriceSpecification",
+      priceCurrency: "USD",
+      price: "0.00",
+    },
+    eligibleTransactionVolume: {
+      "@type": "PriceSpecification",
+      name: "No Minimum Order Requirement",
+    },
+    seller: {
+      "@type": "Corporation",
+      name: "Papa John's",
+      url: "https://www.papajohns.com/",
+    },
   };
 
   const couponClickHandler = (code) => {
@@ -78,33 +110,29 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>
-          40% off any purchase | Coupons and Promo Codes for Papa Johns
-        </title>
+        <title>{content.title}</title>
         <link rel="canonical" href="https://coupons.garitacenter.com/" />
         <link rel="icon" href="/favicon.ico" />
-        <meta
-          name="description"
-          content="Promo Code: BARRIO10 gives you 40% off any purchase. We find and verify the best Papa Johns Coupons and Promo Codes on the web for you."
-        />
+        <meta name="description" content={content.description} />
         <script type="application/ld+json">
-          {JSON.stringify(articleStructuredData)}
+          {JSON.stringify(FAQStructuredData)}
         </script>
 
+        <script type="application/ld+json">
+          {JSON.stringify(disCountStructure)}
+        </script>
+
+        <meta property="og:site_name" content="Papa Johns Coupons"></meta>
         <meta property="og:url" content="https://coupons.garitacenter.com/" />
         <meta property="og:type" content="website" />
-        <meta
-          property="og:title"
-          content="Coupons and Promo Codes for Papa Johns"
-        />
-        <meta
-          property="og:description"
-          content="We find and verify the best Papa Johns coupon and promo codes on the web for you."
-        />
+        <meta property="og:title" content={content.title} />
+        <meta property="og:description" content={content.description} />
         <meta
           property="og:image"
           content="https://coupons.garitacenter.com/profile.png"
         />
+
+        <meta content="Papa Johns Coupons" name="apple-mobile-web-app-title" />
       </Head>
 
       <header
@@ -175,7 +203,7 @@ export default function Home() {
 
         <ul style={{ padding: 0, listStyle: "none" }}>
           {FAQ.map((item) => (
-            <li style={{ padding: "0 0 20px 0" }}>
+            <li style={{ padding: "0 0 20px 0" }} key={item.answer}>
               <div>- {item.question}</div>
               <div
                 style={{ margin: "12px 0", opacity: 0.8, fontWeight: "bold" }}
@@ -185,14 +213,6 @@ export default function Home() {
             </li>
           ))}
         </ul>
-
-        <p style={{ margin: "20px 0" }}>
-          Indulge in mouthwatering pizzas from Papa John's with unbeatable
-          savings using our exclusive coupons and promo codes. Treat yourself to
-          delectable flavors while enjoying incredible discounts on your
-          favorite slices. Don't miss out on the chance to satisfy your cravings
-          while keeping your wallet happy!
-        </p>
       </main>
 
       <footer
