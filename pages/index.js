@@ -91,7 +91,7 @@ export default function Home() {
     category: "Coupon",
     validFrom: "2023-07-08T02:34:00-05:00",
     validThrough: "",
-    url: "/coupons/papa-johns#dj04NTg0NDE=",
+    url: "https://coupons.garitacenter.com/",
     eligibleCustomerType: "Available to new and existing customers",
     priceSpecification: {
       "@type": "PriceSpecification",
@@ -110,8 +110,10 @@ export default function Home() {
   };
 
   const couponClickHandler = (code) => {
-    navigator.clipboard.writeText(code);
-    setCodeCopied(code);
+    if (navigator && navigator.clipboard) {
+      navigator.clipboard.writeText(code);
+      setCodeCopied(code);
+    }
   };
 
   useEffect(() => {
@@ -167,7 +169,7 @@ export default function Home() {
         <div>
           {coupons.map((coupon, index) => (
             <div
-              key={index}
+              key={coupon.code}
               style={{
                 border: `1px ${
                   index === 0 ? styles.color.secondary : styles.color.gray
@@ -219,8 +221,8 @@ export default function Home() {
         </p>
 
         <ul style={{ padding: 0, listStyle: "none" }}>
-          {FAQ.map((item) => (
-            <li style={{ padding: "0 0 20px 0" }} key={item.answer}>
+          {FAQ.map((item, index) => (
+            <li style={{ padding: "0 0 20px 0" }} key={index}>
               <div dangerouslySetInnerHTML={{ __html: item.question }} />
               <div
                 style={{ margin: "12px 0", opacity: 0.8, fontWeight: "bold" }}
@@ -256,6 +258,15 @@ export default function Home() {
               title="Coupons and Promo Codes"
             >
               Facebook
+            </a>{" "}
+            |{" "}
+            <a
+              href="https://www.youtube.com/@Coupons-eg3jr"
+              rel="nofollow"
+              style={{ color: "black", opacity: 0.8 }}
+              title="Coupons and Promo Codes"
+            >
+              Youtube
             </a>
           </div>
         </div>
