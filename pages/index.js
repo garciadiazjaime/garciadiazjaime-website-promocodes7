@@ -252,8 +252,17 @@ export default function Home() {
               title="Coupons and Promo Codes"
             >
               Facebook
-            </a>{" "}
-            |{" "}
+            </a>
+            {" "}|{" "}
+            <a
+              href="https://twitter.com/Coupons371244"
+              rel="nofollow"
+              style={{ color: "black", opacity: 0.8 }}
+              title="Coupons and Promo Codes"
+            >
+              Twitter
+            </a>
+            {" "}|{" "}
             <a
               href="https://www.youtube.com/@Coupons-eg3jr"
               rel="nofollow"
