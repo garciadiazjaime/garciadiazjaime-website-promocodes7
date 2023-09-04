@@ -15,9 +15,9 @@ export default function Home() {
   };
 
   const content = {
-    title: "40% Off Papa John's Coupons & Promo Codes",
+    title: "40% Off Papa John's Coupons, Promo Codes",
     description:
-      "Promo Code gives you 40% off any purchase. We find and verify the best Papa Johns Coupons and Promo Codes on the web for you.",
+      "Promo Code: BARRIO10 gives you 40% off any purchase. We find and verify the best Papa Johns Coupons and Promo Codes on the web for you.",
   };
 
   const coupons = [
