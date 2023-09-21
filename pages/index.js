@@ -103,6 +103,20 @@ export default function Home() {
     },
   };
 
+  const ratingStructure = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Papa John's",
+    sameAs: "https://papajohns.com",
+    aggregateRating: {
+      "@type": "AggregateRating",
+      bestRating: 5,
+      worstRating: 1,
+      ratingValue: "4",
+      ratingCount: 382,
+    },
+  };
+
   const couponClickHandler = (code) => {
     if (navigator && navigator.clipboard) {
       navigator.clipboard.writeText(code);
@@ -130,6 +144,10 @@ export default function Home() {
 
         <script type="application/ld+json">
           {JSON.stringify(disCountStructure)}
+        </script>
+
+        <script type="application/ld+json">
+          {JSON.stringify(ratingStructure)}
         </script>
 
         <meta property="og:site_name" content="Papa Johns Coupons"></meta>
@@ -202,6 +220,21 @@ export default function Home() {
           ))}
         </div>
 
+        <div
+          itemProp="review"
+          itemScope
+          itemType="http://schema.org/Review"
+          style={{ margin: "24px 0" }}
+        >
+          <div
+            itemProp="reviewRating"
+            itemScope
+            itemType="http://schema.org/Rating"
+          >
+            <span itemProp="ratingValue">⭐⭐⭐⭐</span> (382)
+          </div>
+        </div>
+
         <p style={{ margin: "60px 0" }}>
           I'm a proud member of the <strong>Papa Johns</strong> Pizza Fan Club
           (yes, it's a thing). I've got a monthly pizza radar that never fails –
@@ -252,8 +285,8 @@ export default function Home() {
               title="Coupons and Promo Codes"
             >
               Facebook
-            </a>
-            {" "}|{" "}
+            </a>{" "}
+            |{" "}
             <a
               href="https://twitter.com/Coupons371244"
               rel="nofollow"
@@ -261,8 +294,8 @@ export default function Home() {
               title="Coupons and Promo Codes"
             >
               Twitter
-            </a>
-            {" "}|{" "}
+            </a>{" "}
+            |{" "}
             <a
               href="https://www.youtube.com/@Coupons-eg3jr"
               rel="nofollow"
