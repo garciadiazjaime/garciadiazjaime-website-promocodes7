@@ -64,6 +64,52 @@ export default function Home() {
     },
   ];
 
+  const webpageStructuredData = {
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    name: "40% Off Papa John's Coupons & Promo Codes",
+    url: "https://coupons.garitacenter.com/",
+    description:
+      "Promo Code gives you 40% off any purchase. We find and verify the best Papa Johns Coupons and Promo Codes on the web for you.",
+    publisher: {
+      "@type": "Organization",
+      name: "Coupons",
+      sameAs: [
+        "https://www.facebook.com/best.coupons.promo.codes",
+        "https://twitter.com/Coupons371244",
+        "https://www.youtube.com/@Coupons-eg3jr",
+      ],
+      url: "https://coupons.garitacenter.com/",
+    },
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          item: {
+            "@id": "https://coupons.garitacenter.com/",
+            name: "Coupons & Promo Codes",
+          },
+        },
+      ],
+    },
+    mainEntity: {
+      "@context": "https://schema.org",
+      "@type": "Store",
+      name: "Papa John's",
+      url: "https://www.groupon.com/coupons/papa-johns",
+      image:
+        "https://invitationdigital-res-1.cloudinary.com/image/upload/w_165,h_165,q_auto,fl_strip_profile,f_auto/papa_johns_logo_2.jpg",
+      aggregateRating: {
+        "@type": "AggregateRating",
+        bestRating: 5,
+        ratingCount: 216,
+        ratingValue: 4,
+      },
+    },
+  };
+
   const FAQStructuredData = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -103,20 +149,6 @@ export default function Home() {
     },
   };
 
-  const ratingStructure = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "Papa John's",
-    sameAs: "https://papajohns.com",
-    aggregateRating: {
-      "@type": "AggregateRating",
-      bestRating: 5,
-      worstRating: 1,
-      ratingValue: "4",
-      ratingCount: 382,
-    },
-  };
-
   const couponClickHandler = (code) => {
     if (navigator && navigator.clipboard) {
       navigator.clipboard.writeText(code);
@@ -139,15 +171,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content={content.description} />
         <script type="application/ld+json">
+          {JSON.stringify(webpageStructuredData)}
+        </script>
+
+        <script type="application/ld+json">
           {JSON.stringify(FAQStructuredData)}
         </script>
 
         <script type="application/ld+json">
           {JSON.stringify(disCountStructure)}
-        </script>
-
-        <script type="application/ld+json">
-          {JSON.stringify(ratingStructure)}
         </script>
 
         <meta property="og:site_name" content="Papa Johns Coupons"></meta>
@@ -220,19 +252,9 @@ export default function Home() {
           ))}
         </div>
 
-        <div
-          itemProp="review"
-          itemScope
-          itemType="http://schema.org/Review"
-          style={{ margin: "24px 0" }}
-        >
-          <div
-            itemProp="reviewRating"
-            itemScope
-            itemType="http://schema.org/Rating"
-          >
-            <span itemProp="ratingValue">⭐⭐⭐⭐</span> (382)
-          </div>
+        <br />
+        <div>
+          <span>⭐⭐⭐⭐</span> 4 (216)
         </div>
 
         <p style={{ margin: "60px 0" }}>
