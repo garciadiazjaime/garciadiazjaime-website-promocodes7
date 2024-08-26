@@ -15,9 +15,9 @@ export default function Home() {
   };
 
   const content = {
-    title: "40% Off Papa John's Coupons, Promo Codes",
+    title: "40% Off Papa John's Coupons & Promo Codes",
     description:
-      "Promo Code: BARRIO10 gives you 40% off any purchase. We find and verify the best Papa Johns Coupons and Promo Codes on the web for you.",
+      "Promo Code gives you 40% off any purchase. We find and verify the best Papa Johns Coupons and Promo Codes on the web for you.",
   };
 
   const coupons = [
@@ -43,9 +43,9 @@ export default function Home() {
     },
     {
       title: "Papa Johns",
-      code: "2LRGS",
+      code: "20OFFAD",
       description:
-        "Two Large Pizzas with your favorite two toppings for $10.99 each",
+        "Up To 20% Off any Online Order when applying this promo code",
     },
   ];
 
@@ -63,6 +63,61 @@ export default function Home() {
       answer: coupons[1].code,
     },
   ];
+
+  const webpageStructuredData = {
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    name: "40% Off Papa John's Coupons & Promo Codes",
+    url: "https://coupons.garitacenter.com/",
+    description:
+      "Promo Code gives you 40% off any purchase. We find and verify the best Papa Johns Coupons and Promo Codes on the web for you.",
+    publisher: {
+      "@type": "Organization",
+      name: "Coupons",
+      sameAs: [
+        "https://www.facebook.com/best.coupons.promo.codes",
+        "https://twitter.com/Coupons371244",
+        "https://www.youtube.com/@Coupons-eg3jr",
+      ],
+      url: "https://coupons.garitacenter.com/",
+    },
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          item: {
+            "@id": "https://coupons.garitacenter.com/",
+            name: "Coupons & Promo Codes",
+          },
+        },
+      ],
+    },
+    mainEntity: {
+      "@context": "https://schema.org",
+      "@type": "Store",
+      name: "Papa John's",
+      url: "https://www.groupon.com/coupons/papa-johns",
+      image:
+        "https://invitationdigital-res-1.cloudinary.com/image/upload/w_165,h_165,q_auto,fl_strip_profile,f_auto/papa_johns_logo_2.jpg",
+      aggregateRating: {
+        "@type": "AggregateRating",
+        bestRating: 5,
+        ratingCount: 320,
+        ratingValue: 4.2,
+      },
+      address: {
+        "@type": "PostalAddress",
+        addressCountry: "USA",
+        addressLocality: "Chicago",
+        addressRegion: "IL",
+        postalCode: "60647",
+      },
+      priceRange: "$$",
+      telephone: "1 (877) 547-7272",
+    },
+  };
 
   const FAQStructuredData = {
     "@context": "https://schema.org",
@@ -124,6 +179,10 @@ export default function Home() {
         <link rel="canonical" href="https://coupons.garitacenter.com/" />
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content={content.description} />
+        <script type="application/ld+json">
+          {JSON.stringify(webpageStructuredData)}
+        </script>
+
         <script type="application/ld+json">
           {JSON.stringify(FAQStructuredData)}
         </script>
@@ -202,6 +261,11 @@ export default function Home() {
           ))}
         </div>
 
+        <br />
+        <div>
+          <span>⭐⭐⭐⭐</span> 4.2 (320)
+        </div>
+
         <p style={{ margin: "60px 0" }}>
           I'm a proud member of the <strong>Papa Johns</strong> Pizza Fan Club
           (yes, it's a thing). I've got a monthly pizza radar that never fails –
@@ -226,6 +290,114 @@ export default function Home() {
             </li>
           ))}
         </ul>
+
+        <section>
+          <p>
+            I feel it's important to include Nutritional Information, so I
+            obtained this data from <strong>Papa John's</strong> website. I hope
+            it helps you make an informed decision when it comes to enjoying
+            delicious pizza, especially if you've found a great promo code.
+          </p>
+
+          <h4>
+            Nutritional Information: <small>PEPPERONI PIZZA</small>
+          </h4>
+          <div>
+            <table
+              aria-label="Nutritional Facts Information"
+              style={{ fontSize: 12, textAlign: "left" }}
+            >
+              <thead>
+                <tr>
+                  <th scope="row">Pizza Size</th>
+                  <th scope="col">Pizza for One</th>
+                  <th scope="col">Small</th>
+                  <th scope="col">Medium</th>
+                  <th scope="col">Large</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Total Calories</th>
+                  <td>220</td>
+                  <td>210</td>
+                  <td>230</td>
+                  <td>320</td>
+                </tr>
+                <tr>
+                  <th scope="row">Calories from Fat</th>
+                  <td>90</td>
+                  <td>80</td>
+                  <td>80</td>
+                  <td>120</td>
+                </tr>
+                <tr>
+                  <th scope="row">Total Fat</th>
+                  <td>10g</td>
+                  <td>8g</td>
+                  <td>9g</td>
+                  <td>13g</td>
+                </tr>
+                <tr>
+                  <th scope="row">Saturated Fat</th>
+                  <td>4g</td>
+                  <td>3.5g</td>
+                  <td>4g</td>
+                  <td>6g</td>
+                </tr>
+                <tr>
+                  <th scope="row">Trans Fat</th>
+                  <td>0g</td>
+                  <td>0g</td>
+                  <td>0g</td>
+                  <td>0g</td>
+                </tr>
+                <tr>
+                  <th scope="row">Cholesterol</th>
+                  <td>25mg</td>
+                  <td>20mg</td>
+                  <td>20mg</td>
+                  <td>30mg</td>
+                </tr>
+                <tr>
+                  <th scope="row">Sodium</th>
+                  <td>580mg</td>
+                  <td>530mg</td>
+                  <td>570mg</td>
+                  <td>810mg</td>
+                </tr>
+                <tr>
+                  <th scope="row">Total Carbohydrate</th>
+                  <td>25g</td>
+                  <td>25g</td>
+                  <td>26g</td>
+                  <td>38g</td>
+                </tr>
+                <tr>
+                  <th scope="row">Dietary Fiber</th>
+                  <td>1g</td>
+                  <td>1g</td>
+                  <td>1g</td>
+                  <td>2g</td>
+                </tr>
+                <tr>
+                  <th scope="row">Sugars</th>
+                  <td>3g</td>
+                  <td>3g</td>
+                  <td>3g</td>
+                  <td>5g</td>
+                </tr>
+                <tr>
+                  <th scope="row">Protein</th>
+                  <td>8g</td>
+                  <td>8g</td>
+                  <td>8g</td>
+                  <td>12g</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
       </main>
 
       <footer
@@ -252,6 +424,15 @@ export default function Home() {
               title="Coupons and Promo Codes"
             >
               Facebook
+            </a>{" "}
+            |{" "}
+            <a
+              href="https://twitter.com/Coupons371244"
+              rel="nofollow"
+              style={{ color: "black", opacity: 0.8 }}
+              title="Coupons and Promo Codes"
+            >
+              Twitter
             </a>{" "}
             |{" "}
             <a

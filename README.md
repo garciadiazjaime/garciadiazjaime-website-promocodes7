@@ -1,5 +1,9 @@
-[Coupons and Promo Codes for Papa Johns](https://coupons.garitacenter.com/)
+# Papa Johns Promo Codes
 
-[Chicago Food](https://chicago-food.mintitmedia.com/)
+I put together a page with promo codes that I'm personally monitoring: [https://coupons.garitacenter.com/](https://coupons.garitacenter.com/). I'm always open to suggestions!
 
-[Chicago Events](https://chicago-concerts.mintitmedia.com/)
+## Other Projects
+
+[Chicago Music Events](https://www.chicagomusiccompass.com/)
+
+[Reporte de Garitas Tijuana](https://www.garitacenter.com/)
